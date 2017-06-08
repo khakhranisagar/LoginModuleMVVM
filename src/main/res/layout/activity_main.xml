@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data class="LoginDataBinding">
+
+
+    <variable
+        name="Login"
+        type="sagarkhakhrani.loginmodule.LoginViewModel"/>
+        <!--Lets associate one more Variable with this XML-->
+        <variable
+            name="ModelClickListener"
+            type="sagarkhakhrani.loginmodule.ClickEvent.ClickListener"/>
+
+</data>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:tag="layout/activity_main_0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        >
+        <EditText
+            android:id="@+id/EmaileditText"
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/input_outline"
+
+            android:hint="@{Login.emailHint}"
+
+            android:text="@={Login.userEmail}"
+            app:error="@{Login.errorEmail}"
+            android:padding="15dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="21dp"
+            android:layout_marginTop="26dp"
+            android:ems="10"
+
+            android:inputType="textEmailAddress" />
+
+
+        <!--fOLLOW this to fill all components in your Form-->
+
+
+        <EditText
+            android:id="@+id/PasswordeditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/input_outline"
+            android:ems="10"
+            android:padding="15dp"
+            android:layout_marginTop="26dp"
+            android:hint="@{Login.passwordHint}"
+            android:text="@={Login.userPassword}"
+            app:error="@{Login.errorPassword}"
+
+            android:inputType="textPassword"
+            android:layout_below="@+id/EmaileditText"
+            android:layout_alignStart="@+id/EmaileditText" />
+
+        <!--Right Now It Will Display Nothing , Bbut it will, When We
+        are Done-->
+        <TextView
+            android:id="@+id/forgotText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/PasswordeditText"
+            android:layout_below="@+id/PasswordeditText"
+            android:layout_marginStart="45dp"
+            android:layout_marginTop="61dp"
+            android:textColor="@color/colorPrimaryDark"
+
+            android:text="@{Login.forgotPasswordText}" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/forgotText"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="46dp"
+            android:background="@color/colorPrimaryDark"
+            android:onClick="@{(v)->ModelClickListener.onClick()}"
+            android:text="@{Login.loginButtonText}"
+            />
+
+    </RelativeLayout>
+
+</layout>
